@@ -97,7 +97,7 @@ const ChampionSelect = ({championData}) => {
             </div>
             <div className="flex justify-around align-items mt-10">
                 <BlueSelect blueChamp={blueChamp}/>
-                <div className="max-h-screen mt-3 grid xl:grid-cols-9 lg:grid-cols-6 md:grid-cols-5 sm:grid-cols-4 grid-cols-3 gap-2 justify-items-center bg-gray-900 text-gray-300 p-8 overflow-y-scroll">
+                <div className="rounded-lg max-h-screen mt-3 grid xl:grid-cols-9 lg:grid-cols-6 md:grid-cols-5 sm:grid-cols-4 grid-cols-3 gap-4 justify-items-center bg-gray-800 text-gray-300 border p-8 overflow-y-scroll">
                     {championList.map(champion => {
                         return (
                             <div key={champion} onClick={() => handleClick(champion)}>

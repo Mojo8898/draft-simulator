@@ -6,7 +6,7 @@ const RedBan = ({redBans}) => {
         <div className="flex flex-row">
             {redBans.map( ban => {
                 return (
-                    <div className="p-3">
+                    <div className="p-3 bg-red-900 text-gray-300">
                         <ChampionCard champion={ban}/>
                     </div>
                 )
