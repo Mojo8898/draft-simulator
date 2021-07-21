@@ -8,7 +8,7 @@ const ChampionCard = ({champion}) => {
     const imgURL = `${championImageURL_start}${champion.version}${championImageURL_middle}${champion.id}${championImageURL_end}`
     return (
         <div className="flex flex-col justify-center items-center group cursor-pointer ">
-            <Image className="group-hover:scale-105 rounded-md transform transition duration-200" src={imgURL} width={120} height={120}/>
+            <Image className="group-hover:scale-105 rounded-md transform transition duration-200" src={imgURL} width={90} height={90}/>
             <h3 className="">{champion.name}</h3>
             
         </div>
