@@ -89,15 +89,23 @@ const ChampionSelect = ({championData}) => {
         }
     }
 
+    const resetChampSelect = () => {
+        setPickBanIndex(1);
+        setBlueChamp([]);
+        setRedChamp([]);
+        setBlueBans([]);
+        setRedBans([]);
+    }
+
     return (
         <div className="flex flex-col">
             <div className="flex flex-row justify-center mt-2 space-x-24">
                 <BlueBan blueBans={blueBans}/>
                 <RedBan redBans={redBans}/>
             </div>
-            <div className="flex justify-around space-x-12  align-items">
+            <div className="flex justify-around  align-items">
                 <BlueSelect blueChamp={blueChamp}/>
-                <div className="rounded-lg max-h-screen w-6/12 mt-10 grid xl:grid-cols-7 lg:grid-cols-6 md:grid-cols-5 sm:grid-cols-4 grid-cols-3 gap-1 justify-items-center bg-gray-800 text-gray-300 border p-3 overflow-y-scroll">
+                <div className="rounded-lg max-h-screen w-6/12 mt-10 grid xl:grid-cols-7 lg:grid-cols-6 md:grid-cols-5 sm:grid-cols-4 grid-cols-3 gap-1 justify-items-center bg-gray-800 text-gray-300 border p-3 overflow-y-scroll m-6">
                     {championList.map(champion => {
                         return (
                             <div key={champion} onClick={() => handleClick(champion)}>
@@ -107,6 +115,9 @@ const ChampionSelect = ({championData}) => {
                     })}
                 </div>
                 <RedSelect redChamp={redChamp}/>
+            </div>
+            <div onClick={resetChampSelect} className="group flex self-center justify-center rounded-lg bg-gray-300 hover:bg-yellow-300 text-gray-900 w-1/12 cursor-pointer">
+                <h3 className="p-3 group-hover:font-bold"> Reset Draft </h3>
             </div>
         </div>
     )
