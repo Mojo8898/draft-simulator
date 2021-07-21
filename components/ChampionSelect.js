@@ -91,17 +91,17 @@ const ChampionSelect = ({championData}) => {
 
     return (
         <div className="flex flex-col">
-            <div className="flex flex-row justify-around mt-10">
+            <div className="flex flex-row justify-center mt-2 space-x-24">
                 <BlueBan blueBans={blueBans}/>
                 <RedBan redBans={redBans}/>
             </div>
-            <div className="flex justify-around align-items mt-10">
+            <div className="flex justify-around space-x-12  align-items">
                 <BlueSelect blueChamp={blueChamp}/>
-                <div className="rounded-lg max-h-screen mt-3 grid xl:grid-cols-9 lg:grid-cols-6 md:grid-cols-5 sm:grid-cols-4 grid-cols-3 gap-4 justify-items-center bg-gray-800 text-gray-300 border p-8 overflow-y-scroll">
+                <div className="rounded-lg max-h-screen w-6/12 mt-10 grid xl:grid-cols-7 lg:grid-cols-6 md:grid-cols-5 sm:grid-cols-4 grid-cols-3 gap-1 justify-items-center bg-gray-800 text-gray-300 border p-3 overflow-y-scroll">
                     {championList.map(champion => {
                         return (
                             <div key={champion} onClick={() => handleClick(champion)}>
-                                <ChampionCard champion={championData[champion]}/>
+                                <ChampionCard champion={championData[champion]} downScaleMultiplier={0.5}/>
                             </div>
                         )
                     })}

@@ -5,8 +5,8 @@ const BlueSelect = ({blueChamp}) => {
         <div className="flex flex-col">
             {blueChamp.map(champion => {
                 return (
-                    <div className="p-3 bg-blue-900 text-gray-300">
-                        <ChampionCard champion={champion} />
+                    <div className="p-3 rounded-xl text-gray-300">
+                        <ChampionCard champion={champion} rounded="true" downScaleMultiplier={0.8}/>
                     </div>
                 )
             })}

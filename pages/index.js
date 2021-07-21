@@ -9,7 +9,7 @@ const leagueVersion = process.env.LEAGUE_VERSION
 
 function Home(props) {
   return (
-    <div className="bg-gray-900">
+    <div className=" bg-gradient-to-br from-blue-900 via-gray-900 to-red-900">
       <ChampionSelect championData={props.championData} />
     </div>
   )
