@@ -5,7 +5,6 @@ import {useState} from "react";
 import BlueBan from "./BlueBan";
 import RedBan from "./RedBan";
 import {ReplyIcon, TrashIcon} from "@heroicons/react/outline"
-import { pi } from "prelude-ls";
 
 const ChampionSelect = ({championData}) => {
     const championList = Object.keys(championData);
@@ -24,7 +23,7 @@ const ChampionSelect = ({championData}) => {
             case 14:
             case 16:
                 setBlueBans( prevBlueBans => {
-                    const totalPickBans = [...blueChamp, ...redChamp, ...blueBans, ...redBans];
+                    const totalPickBans = [...blueChamp, ...redChamp, ...blueBans, ...redBans, ...pickBanHistory];
                     if ( !totalPickBans.includes(championData[chmp]) ) {
                         setPickBanIndex( prevIndex => prevIndex + 1);
                         setPickBanHistory(prevHistory => [...prevHistory, championData[chmp]]);
@@ -43,7 +42,7 @@ const ChampionSelect = ({championData}) => {
             case 13:
             case 15:
                setRedBans( prevRedBans => {
-                    const totalPickBans = [...blueChamp, ...redChamp, ...blueBans, ...redBans];
+                    const totalPickBans = [...blueChamp, ...redChamp, ...blueBans, ...redBans, ...pickBanHistory];
                     if ( !totalPickBans.includes(championData[chmp]) ) {
                         setPickBanIndex( prevIndex => prevIndex + 1);
                         setPickBanHistory(prevHistory => [...prevHistory, championData[chmp]]);
@@ -62,7 +61,7 @@ const ChampionSelect = ({championData}) => {
             case 18:
             case 19:
                 setBlueChamp( prevBlueChamp => {
-                    const totalPickBans = [...blueChamp, ...redChamp, ...blueBans, ...redBans];
+                    const totalPickBans = [...blueChamp, ...redChamp, ...blueBans, ...redBans, ...pickBanHistory];
                     if ( !totalPickBans.includes(championData[chmp]) ) {
                         setPickBanIndex( prevIndex => prevIndex + 1);
                         setPickBanHistory(prevHistory => [...prevHistory, championData[chmp]]);
@@ -80,7 +79,7 @@ const ChampionSelect = ({championData}) => {
             case 17:
             case 20:
                 setRedChamp( prevRedChamp => {
-                    const totalPickBans = [...blueChamp, ...redChamp, ...blueBans, ...redBans];
+                    const totalPickBans = [...blueChamp, ...redChamp, ...blueBans, ...redBans, ...pickBanHistory];
                     if ( !totalPickBans.includes(championData[chmp]) ) {
                         setPickBanIndex( prevIndex => prevIndex + 1);
                         setPickBanHistory(prevHistory => [...prevHistory, championData[chmp]]);
@@ -111,7 +110,7 @@ const ChampionSelect = ({championData}) => {
             return (
                 prevPicks.filter(pick => {
                     const comparisonArray = pickBanHistory.slice();
-                    if (pick == comparisonArray[comparisonArray.length -1]) setPickBanHistory(prevHistory => prevHistory.filter(elem => elem !== prevHistory[prevHistory.length -1]));
+                    if (pick == comparisonArray[comparisonArray.length -1]) setPickBanHistory(prevHistory => prevHistory.filter(elem => elem !== pick));
                     return (
                         pick !== comparisonArray[comparisonArray.length -1]
                     );
@@ -122,7 +121,7 @@ const ChampionSelect = ({championData}) => {
             return (
                 prevPicks.filter(pick => {
                     const comparisonArray = pickBanHistory.slice();
-                    if (pick == comparisonArray[comparisonArray.length -1])  setPickBanHistory(prevHistory => prevHistory.filter(elem => elem !== prevHistory[prevHistory.length -1]));
+                    if (pick == comparisonArray[comparisonArray.length -1])  setPickBanHistory(prevHistory => prevHistory.filter(elem => elem !== pick));
                     return (
                         pick !== comparisonArray[comparisonArray.length -1]
                     );
@@ -133,18 +132,18 @@ const ChampionSelect = ({championData}) => {
             return (
                 prevPicks.filter(pick => {
                     const comparisonArray = pickBanHistory.slice();
-                    if (pick == comparisonArray[comparisonArray.length -1]) setPickBanHistory(prevHistory => prevHistory.filter(elem => elem !== prevHistory[prevHistory.length -1]));
+                    if (pick == comparisonArray[comparisonArray.length -1]) setPickBanHistory(prevHistory => prevHistory.filter(elem => elem !== pick));
                     return (
                         pick !== comparisonArray[comparisonArray.length -1]
                     );
                 })
             );
         });
-        if ([2, 4, 6, 13, 15].includes(pickBanIndex -1)) setRedBans(prevPicks => {
+        if ([2, 4, 6, 13, 15].includes(pickBanIndex - 1)) setRedBans(prevPicks => {
             return (
                 prevPicks.filter(pick => {
                     const comparisonArray = pickBanHistory.slice();
-                    if (pick == comparisonArray[comparisonArray.length -1])  setPickBanHistory(prevHistory => prevHistory.filter(elem => elem !== prevHistory[prevHistory.length -1]));
+                    if (pick == comparisonArray[comparisonArray.length -1])  setPickBanHistory(prevHistory => prevHistory.filter(elem => elem !== pick));
                     return (
                         pick !== comparisonArray[comparisonArray.length -1]
                     );
