@@ -1,5 +1,7 @@
 import axios from "axios";
 import ChampionSelect from "../components/ChampionSelect";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 
 
 const championImageURL_start = 'https://ddragon.leagueoflegends.com/cdn/'
@@ -9,8 +11,10 @@ const leagueVersion = process.env.LEAGUE_VERSION
 
 function Home(props) {
   return (
-    <div className=" bg-gradient-to-br from-blue-900 via-gray-900 to-red-900">
+    <div className="flex flex-col bg-gradient-to-br from-blue-900 via-gray-900 to-red-900">
+      <Header />
       <ChampionSelect championData={props.championData} />
+      <Footer />
     </div>
   )
 }
