@@ -152,7 +152,7 @@ const ChampionSelect = ({championData}) => {
         });
         console.log(pickBanIndex);
         console.log(pickBanHistory);
-        if (pickBanIndex > 1 && pickBanIndex <= 20) setPickBanIndex(prevIndex => prevIndex - 1);
+        if (pickBanIndex > 1 && pickBanIndex <= 21) setPickBanIndex(prevIndex => prevIndex - 1);
         
     }
 
