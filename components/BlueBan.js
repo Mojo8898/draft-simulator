@@ -10,7 +10,7 @@ const BlueBan = ({blueBans, currentSelect}) => {
     }
     
     return (
-        <div className="flex flex-row">
+        <div className="flex flex-col md:flex-row">
             {blueBanned.map( ban => {
                 id++;
                 return (

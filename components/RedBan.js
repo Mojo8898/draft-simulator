@@ -11,7 +11,7 @@ const RedBan = ({redBans, currentSelect}) => {
     }
     
     return (
-        <div className="flex flex-row">
+        <div className="flex flex-col md:flex-row">
             {redBanned.map( ban => {
                 id++;
                 return (
