@@ -9,7 +9,7 @@ function Home(props) {
     <div className="flex flex-col bg-gradient-to-br from-blue-900 via-gray-900 to-red-900">
       <Header />
       <ChampionSelect championData={props.championData} />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }
