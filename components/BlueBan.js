@@ -1,14 +1,15 @@
 import ChampionCard from "./ChampionCard"
 
+
 const BlueBan = ({blueBans, currentSelect}) => {
-    const numberOfPicks = 5 - blueBans.length;
+    const numberOfPicks = 1 - blueBans.length;
     const blueBanned = [...blueBans];
-    const blueBansIndexes= [1, 3, 5, 14, 16];
+    const blueBansIndexes= [1];
     let id = -1;
     for (let i=0; i<numberOfPicks; i++) {
         blueBanned.push("");
     }
-    
+
     return (
         <div className="flex flex-col md:flex-row">
             {blueBanned.map( ban => {

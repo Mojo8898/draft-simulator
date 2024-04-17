@@ -1,14 +1,15 @@
 import ChampionCard from "./ChampionCard"
 
+
 const BlueSelect = ({blueChamp, currentSelect}) => {
     const numberOfPicks = 5 - blueChamp.length;
     const bluePicks = [...blueChamp];
-    const bluePickIndexes = [7, 10, 11, 18, 19];
+    const bluePickIndexes = [3, 6, 7, 10, 11];
     let id = -1;
     for (let i=0; i<numberOfPicks; i++) {
         bluePicks.push("");
     }
-    
+
     return (
         <div className="flex flex-col">
             {bluePicks.map(champion => {

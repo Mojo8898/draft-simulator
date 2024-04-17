@@ -18,10 +18,6 @@ const ChampionSelect = ({championData}) => {
     const handleClick = chmp => {
         switch (pickBanIndex) {
             case 1:
-            case 3:
-            case 5:
-            case 14:
-            case 16:
                 setBlueBans( prevBlueBans => {
                     const totalPickBans = [...blueChamp, ...redChamp, ...blueBans, ...redBans, ...pickBanHistory];
                     if ( !totalPickBans.includes(championData[chmp]) ) {
@@ -34,14 +30,10 @@ const ChampionSelect = ({championData}) => {
                         return [...prevBlueBans];
                     }
                 })
-                
+
                 break;
             case 2:
-            case 4:
-            case 6:
-            case 13:
-            case 15:
-               setRedBans( prevRedBans => {
+                setRedBans( prevRedBans => {
                     const totalPickBans = [...blueChamp, ...redChamp, ...blueBans, ...redBans, ...pickBanHistory];
                     if ( !totalPickBans.includes(championData[chmp]) ) {
                         setPickBanIndex( prevIndex => prevIndex + 1);
@@ -55,13 +47,13 @@ const ChampionSelect = ({championData}) => {
                 })
                 
                 break;
+            case 3:
+            case 6:
             case 7:
             case 10:
             case 11:
-            case 18:
-            case 19:
                 setBlueChamp( prevBlueChamp => {
-                    const totalPickBans = [...blueChamp, ...redChamp, ...blueBans, ...redBans, ...pickBanHistory];
+                    const totalPickBans = [...blueChamp, ...blueBans, ...redBans];
                     if ( !totalPickBans.includes(championData[chmp]) ) {
                         setPickBanIndex( prevIndex => prevIndex + 1);
                         setPickBanHistory(prevHistory => [...prevHistory, championData[chmp]]);
@@ -73,13 +65,13 @@ const ChampionSelect = ({championData}) => {
                     }
                 })
                 break;
+            case 4:
+            case 5:
             case 8:
             case 9:
             case 12:
-            case 17:
-            case 20:
                 setRedChamp( prevRedChamp => {
-                    const totalPickBans = [...blueChamp, ...redChamp, ...blueBans, ...redBans, ...pickBanHistory];
+                    const totalPickBans = [...redChamp, ...blueBans, ...redBans];
                     if ( !totalPickBans.includes(championData[chmp]) ) {
                         setPickBanIndex( prevIndex => prevIndex + 1);
                         setPickBanHistory(prevHistory => [...prevHistory, championData[chmp]]);
@@ -106,7 +98,7 @@ const ChampionSelect = ({championData}) => {
     }
 
     const goBack = () => {
-        if ([7, 10, 11, 18, 19].includes(pickBanIndex -1)) setBlueChamp(prevPicks => {
+        if ([3, 6, 7, 10, 11].includes(pickBanIndex -1)) setBlueChamp(prevPicks => {
             return (
                 prevPicks.filter(pick => {
                     const comparisonArray = pickBanHistory.slice();
@@ -117,7 +109,7 @@ const ChampionSelect = ({championData}) => {
                 })
             );
         });
-        if ([8, 9, 12, 17, 20].includes(pickBanIndex -1)) setRedChamp(prevPicks => {
+        if ([4, 5, 8, 9, 12].includes(pickBanIndex -1)) setRedChamp(prevPicks => {
             return (
                 prevPicks.filter(pick => {
                     const comparisonArray = pickBanHistory.slice();
@@ -128,7 +120,7 @@ const ChampionSelect = ({championData}) => {
                 })
             );
         });
-        if ([1, 3, 5, 14, 16].includes(pickBanIndex -1)) setBlueBans(prevPicks => {
+        if ([1].includes(pickBanIndex -1)) setBlueBans(prevPicks => {
             return (
                 prevPicks.filter(pick => {
                     const comparisonArray = pickBanHistory.slice();
@@ -139,7 +131,7 @@ const ChampionSelect = ({championData}) => {
                 })
             );
         });
-        if ([2, 4, 6, 13, 15].includes(pickBanIndex - 1)) setRedBans(prevPicks => {
+        if ([2].includes(pickBanIndex - 1)) setRedBans(prevPicks => {
             return (
                 prevPicks.filter(pick => {
                     const comparisonArray = pickBanHistory.slice();
@@ -152,8 +144,7 @@ const ChampionSelect = ({championData}) => {
         });
         console.log(pickBanIndex);
         console.log(pickBanHistory);
-        if (pickBanIndex > 1 && pickBanIndex <= 21) setPickBanIndex(prevIndex => prevIndex - 1);
-        
+        if (pickBanIndex > 1 && pickBanIndex <= 13) setPickBanIndex(prevIndex => prevIndex - 1);
     }
 
     return (

@@ -1,5 +1,5 @@
 import ChampionSelect from "../components/ChampionSelect";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 import Header from "../components/Header";
 import championData from '../public/champions.json';
 
@@ -21,6 +21,6 @@ export async function getStaticProps(context) {
   return {
     props: {
       championData,
-    }, // will be passed to the page component as props
+    }
   }
 }
