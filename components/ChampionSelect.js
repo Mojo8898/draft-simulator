@@ -94,7 +94,7 @@ const ChampionSelect = ({championData}) => {
         setBlueBans([]);
         setRedBans([]);
         setPickBanHistory([]);
-        console.log("pickBanIndex: ", pickBanIndex)
+        // console.log("pickBanIndex: ", pickBanIndex)
     }
 
     const goBack = () => {
@@ -142,8 +142,8 @@ const ChampionSelect = ({championData}) => {
                 })
             );
         });
-        console.log(pickBanIndex);
-        console.log(pickBanHistory);
+        // console.log(pickBanIndex);
+        // console.log(pickBanHistory);
         if (pickBanIndex > 1 && pickBanIndex <= 13) setPickBanIndex(prevIndex => prevIndex - 1);
     }
 
