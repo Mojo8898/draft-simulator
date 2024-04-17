@@ -7,6 +7,7 @@ Install:
 3. Upgrade packages
 
 ```
+yarn install
 yarn upgrade next
 yarn upgrade react react-dom
 yarn outdated
